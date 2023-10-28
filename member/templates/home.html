@@ -2,8 +2,10 @@
 {% load thumbnail %}
 {% block title %} sukhi is awesome {% endblock %}
 {% block body %}
+    <a href="{% url 'member:post' %}">add image &rarr;</a><br>
+
     {% for member in members %}
-        <a href="{% url 'member:detail' member.id %}"> view details</a>
+        <a href="{% url 'member:detail' member.id %}"> view details</a><br>
         {{member.name}}<br>
         {% thumbnail member.img "100x100" crop="center" as im %}
             <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
