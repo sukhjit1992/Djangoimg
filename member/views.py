@@ -7,7 +7,7 @@ from .forms import PostForm
 class Homepage(TemplateView):
     template_name = 'home.html'
     def get_context_data(self, **kwargs):
-        members = member.objects.all()
+        members = member.objects.all().order_by('-id')
         context= super().get_context_data(**kwargs)
         context = {'members': members}
         return context
