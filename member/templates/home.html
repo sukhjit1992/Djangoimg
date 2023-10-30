@@ -2,13 +2,22 @@
 {% load thumbnail %}
 {% block title %} sukhi is awesome {% endblock %}
 {% block body %}
-    <a href="{% url 'member:post' %}">add image &rarr;</a><br>
-
+<div class="row">
     {% for member in members %}
-        <a href="{% url 'member:detail' member.id %}"> view details</a><br>
-        {{member.name}}<br>
-        {% thumbnail member.img "100x100" crop="center" as im %}
-            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-        {% endthumbnail %}<hr>
-{% endfor %}
+        
+            <div class="card" style="width: 18rem;">
+                <div class="col-sm-6 col-md-6">
+                {% thumbnail member.img "100x100" crop="center" as im %}
+                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                {% endthumbnail %}<hr>
+                <div class="card-body">
+                <h5 class="card-title">{{member.name}}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="{% url 'member:detail' member.id %}" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+            </div>
+        
+    {% endfor %}
+</div>
 {% endblock %}     
