@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block title %} detailview{% endblock %}
 {% block body %}
-<a href="{% url 'member:index' %}">go back</a>
-<h3>text</h3>
- {{object.name}}
- <h3>image</h3>
- <img src= '{{ object.img.url}}' style = 'width:100%; height:auto' >
-
+<div class="row">
+    <div class="col-sm-10 offset-sm-1 py-5">
+        {{object.name}}
+        <img src= '{{ object.img.url}}' class = 'img-fluid rounded' >
+    </div>
+</div>
 {% endblock %}
