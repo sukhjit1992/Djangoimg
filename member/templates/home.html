@@ -5,8 +5,8 @@
 <div class="row">
     {% for member in members %}
         <div class="col-sm-6 col-md-3">
-            <div class="card my-4">
-                    {% thumbnail member.img "200x200" crop="center" as im %}
+            <div class="card my-4 border border-danger bg-secondary">
+                    {% thumbnail member.img "305x305" crop="center" as im %}
                         <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                     {% endthumbnail %}<hr>
                     <div class="card-body">
