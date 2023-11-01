@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %} forms {% endblock %}
+{% block body %}
+   <form class="col-sm-4 offset-4 py-5 my-5" method="POST" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+   {{form.as_p}}
+   <div><button type='submit' class="btn btn-success bt-lg">submit form</button></div>
+{% endblock %}     

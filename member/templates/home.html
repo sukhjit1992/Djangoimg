@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block title %} sukhi is awesome {% endblock %}
+{% block body %}
+<div class="row">
+    {% for member in members %}
+        <div class="col-sm-6 col-md-3">
+            <div class="card my-4 border border-danger bg-secondary">
+                    {% thumbnail member.img "305x305" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                    {% endthumbnail %}<hr>
+                    <div class="card-body">
+                        <h5 class="card-title">{{member.name}}</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="{% url 'member:detail' member.id %}" class="btn btn-primary">Details</a>
+                    </div>   
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}     
